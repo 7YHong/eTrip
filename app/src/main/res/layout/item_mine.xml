@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="56sp"
+    android:padding="16dp"
+    android:background="@drawable/item_background">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/my_noaccount"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="32sp"
+        android:layout_gravity="bottom"
+        android:text="未登录"
+        android:textSize="16sp"/>
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--头部的图片-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/my_picture"
+                android:src="@drawable/my_picture"
+                android:adjustViewBounds="true"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/my_picture"
+                android:layout_alignBottom="@id/my_picture"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16sp"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:layout_marginBottom="16sp"
+                    android:src="@drawable/my_logo"
+                    android:adjustViewBounds="true"/>
+                <Button
+                    android:layout_width="200sp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="点击登录"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/my_loginbtn"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <include layout="@layout/item_mine"/>
+        <android.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+        <include layout="@layout/item_mine"/>
+        <include layout="@layout/item_mine"/>
+        <include layout="@layout/item_mine"/>
+        <include layout="@layout/item_mine"/>
+        <include layout="@layout/item_mine"/>
+        <include layout="@layout/item_mine"/>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_weight="1"
+            android:background="@drawable/imag_press"
+            >
+            <ImageView
+                android:layout_width="190dp"
+                android:layout_height="150dp"
+                android:background="@drawable/kuaidi"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_weight="1"
+            android:background="@drawable/imag_press"
+            >
+            <ImageView
+                android:layout_width="190dp"
+                android:layout_height="150dp"
+                android:background="@drawable/chaoshi"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:background="@drawable/imag_press"
+            >
+            <ImageView
+                android:layout_width="190dp"
+                android:layout_height="150dp"
+                android:background="@drawable/shitang"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:background="@drawable/imag_press"
+            >
+            <ImageView
+                android:layout_width="190dp"
+                android:layout_height="150dp"
+                android:background="@drawable/dayingji"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <Button
+           android:id="@+id/map_btn"
+           android:layout_width="250dp"
+           android:layout_height="70dp"
+           android:layout_centerInParent="true"
+           android:background="@drawable/back"
+           android:text="查看地图"
+           android:textColor="@drawable/tab_textcolor"
+           android:textSize="45dp"/>
+   </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="104sp"
+    android:padding="8dp">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/vehi_list_item_icon"
+        android:adjustViewBounds="true"
+        android:src="@drawable/vehi_list_item_icon"
+        android:layout_marginRight="16dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vehi_list_item_title"
+        android:layout_toRightOf="@id/vehi_list_item_icon"
+        android:text="张家界一日游"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vehi_list_item_describe"
+        android:layout_toRightOf="@id/vehi_list_item_icon"
+        android:layout_below="@id/vehi_list_item_title"
+        android:text="车票免费，送三餐，包住宿"
+        android:singleLine="true"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/vehi_list_item_icon"
+        android:layout_alignBottom="@id/vehi_list_item_icon"
+        android:id="@+id/vehi_list_item_price"
+        android:text="$99.9"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="20sp"/>
+
+</RelativeLayout>
