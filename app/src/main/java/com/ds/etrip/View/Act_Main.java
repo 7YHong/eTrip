@@ -50,7 +50,6 @@ public class Act_Main extends AppCompatActivity{
 
             @Override
             public void onPageSelected(int position) {
-                Log.e("tag8", position+" ");
                 bottomBar.setSelect(position);
 
             }

@@ -23,11 +23,24 @@
     </RelativeLayout>
 
 
-    <ListView
-        android:id="@+id/vehi_list"
+    <ImageView
+        android:id="@+id/vehi_taxi"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
-        android:dividerHeight="8dp"/>
+        android:layout_weight="1"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/vehi_taxi"/>
+    <ImageView
+        android:id="@+id/vehi_bus"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/vehi_bus"/>
 
 </LinearLayout>

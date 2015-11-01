@@ -1,22 +1,22 @@
-package com.ds.etrip;
+package com.ds.etrip.View;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
+import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
@@ -35,15 +35,19 @@ import com.baidu.mapapi.radar.RadarSearchListener;
 import com.baidu.mapapi.radar.RadarSearchManager;
 import com.baidu.mapapi.radar.RadarUploadInfo;
 import com.baidu.mapapi.radar.RadarUploadInfoCallback;
+import com.ds.etrip.Adapter.Main_PagerAdapter;
+import com.ds.etrip.R;
+import com.ds.etrip.View.BWview;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 
 /**
  * Created by 7YHong on 2015/10/29.
  */
-public class MapActivity extends Activity implements RadarUploadInfoCallback,RadarSearchListener {
+public class MapActivity extends AppCompatActivity implements RadarUploadInfoCallback,RadarSearchListener {
     private MapView mapView;
     private BaiduMap baiduMap;
     RadarSearchManager mManager;
@@ -51,14 +55,17 @@ public class MapActivity extends Activity implements RadarUploadInfoCallback,Rad
 
     private loC mLoc=new loC(new BDLocation());
     boolean isLoc =true;
-    boolean isUpdate=false;
     boolean isZoom=true;
 
-    Button btn_1;
-    Button btn_2;
-    Button btn_3;
+    List<Fragment> fragments;
+
+   ViewPager pager;
+   PagerAdapter pagerAdapter;
 
 
+    public void onClick(View v){
+        startActivity(new Intent(getApplicationContext(),BWActivity.class));
+    }
 
     Handler mHandle=new Handler(new Handler.Callback() {
         @Override
@@ -69,41 +76,46 @@ public class MapActivity extends Activity implements RadarUploadInfoCallback,Rad
             return true;
         }
     });
-
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.mapactivity);
-        mapView= (MapView) findViewById(R.id.bmapView);
-        baiduMap=mapView.getMap();
+        mapView = (MapView) findViewById(R.id.bmapView);
+        baiduMap = mapView.getMap();
         mManager = RadarSearchManager.getInstance();
+        int num=getIntent().getIntExtra("num",0);
+//        initFragment(num);
+        initLocation();
+//        pager= (ViewPager) findViewById(R.id.bwxiangqing);
+//        pagerAdapter=new Main_PagerAdapter(getSupportFragmentManager(),fragments);
+//        pager.setAdapter(pagerAdapter);
+//
+//        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
 
-        btn_1= (Button) findViewById(R.id.btn_1);
-        btn_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        btn_2= (Button) findViewById(R.id.btn_2);
-        btn_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        btn_3= (Button) findViewById(R.id.btn_3);
-        btn_3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        Log.e("tag7", "oncreat");
     }
 
+//    private void initFragment(int num) {
+//        fragments=new ArrayList<>();
+//        for(int i=0;i<num;i++){
+//            fragments.add(new BWview(i));
+//        }
+//
+//    }
 
 
     @Override
@@ -116,10 +128,6 @@ public class MapActivity extends Activity implements RadarUploadInfoCallback,Rad
     public void onResume() {
         super.onResume();
         mapView.onResume();
-        initLocation();
-        if(isUpdate){
-            updatView();
-        }
         Log.e("tag7", "onresume");
     }
 
@@ -127,17 +135,7 @@ public class MapActivity extends Activity implements RadarUploadInfoCallback,Rad
     public void onPause() {
         super.onPause();
         mapView.onPause();
-        isLoc=true;
-        isUpdate=true;
         Log.e("tag7", "onpause");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        isLoc=true;
-        isUpdate=true;
-        Log.e("tag7", "onstop");
     }
 
     @Override
@@ -150,8 +148,6 @@ public class MapActivity extends Activity implements RadarUploadInfoCallback,Rad
         Log.e("tag7", "ondestroy");
 
     }
-
-
    private void initLocation(){
         LocationClientOption option = new LocationClientOption();
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy
@@ -174,8 +170,8 @@ public class MapActivity extends Activity implements RadarUploadInfoCallback,Rad
        mLocationClient.start();
     }
     protected void updatView(){
-       /*LatLng point = new LatLng(mLoc.getX(), mLoc.getY());//构建Marker图标
-        BitmapDescriptor bitmap = BitmapDescriptorFactory
+       LatLng point = new LatLng(mLoc.getX(), mLoc.getY());//构建Marker图标
+        /*BitmapDescriptor bitmap = BitmapDescriptorFactory
                 .fromResource(R.drawable.icon_mark1);//构建MarkerOption，用于在地图上添加Marker
         OverlayOptions option = new MarkerOptions()
                 .position(point)
@@ -194,7 +190,6 @@ public class MapActivity extends Activity implements RadarUploadInfoCallback,Rad
                 .direction(100).latitude(mLoc.getLocation().getLatitude())
                 .longitude(mLoc.getLocation().getLongitude()).build();
         baiduMap.setMyLocationData(locData);// 设置定位数据
-        isUpdate=true;
         animMap();
 
     }
@@ -250,7 +245,7 @@ public class MapActivity extends Activity implements RadarUploadInfoCallback,Rad
 
                 Class drawable = R.drawable.class;
                 Field field = null;
-                int res_ID=R.drawable.icon_mark1;
+                int res_ID= R.drawable.icon_mark1;
                 try {
                     field = drawable.getField("icon_mark" + i);
                     res_ID = field.getInt(field.getName());
@@ -287,7 +282,7 @@ public class MapActivity extends Activity implements RadarUploadInfoCallback,Rad
     }
     @Override
     public void onGetClearInfoState(RadarSearchError radarSearchError) {
-        if(radarSearchError==RadarSearchError.RADAR_NO_ERROR){
+        if(radarSearchError== RadarSearchError.RADAR_NO_ERROR){
             Log.e("tag1","成功清除");
         }else {
             Log.e("tag1","清除失败");

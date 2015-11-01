@@ -1,5 +1,6 @@
 package com.ds.etrip.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.ds.etrip.Adapter.Vehi_List_Adapter;
+import com.ds.etrip.Adapter.Custom_List_Adapter;
 import com.ds.etrip.Adapter.Vehi_VP_Adapter;
 import com.ds.etrip.R;
 
@@ -26,10 +27,9 @@ import java.util.List;
 public class Frag_Vehicle extends Fragment{
     View v;
     ViewPager titlevp;
-    ListView busList;
+    ImageView taxi,bus;
     LinearLayout dots;
     List<ImageView> titlepics;
-    List<String> buses; ;
 
     @Nullable
     @Override
@@ -40,13 +40,28 @@ public class Frag_Vehicle extends Fragment{
 
         titlevp= (ViewPager) v.findViewById(R.id.vehi_titlevp);
         dots= (LinearLayout) v.findViewById(R.id.vehi_vp_dots);
-        busList= (ListView) v.findViewById(R.id.vehi_list);
+        taxi= (ImageView) v.findViewById(R.id.vehi_taxi);
+        bus= (ImageView) v.findViewById(R.id.vehi_bus);
 
         PagerAdapter vpAdapter=new Vehi_VP_Adapter(getActivity(),titlepics);
         titlevp.setAdapter(vpAdapter);
 
-        ListAdapter busAdapter=new Vehi_List_Adapter(getActivity(),buses);
-        busList.setAdapter(busAdapter);
+
+        View.OnClickListener onClickListener=new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int type=0;
+                switch (v.getId()){
+                    case R.id.vehi_taxi:type=0;break;
+                    case R.id.vehi_bus:type=1;break;
+                }
+                Intent intent=new Intent(getActivity(),Act_VehiList.class);
+                intent.putExtra("type",type);
+                startActivity(intent);
+            }
+        };
+        taxi.setOnClickListener(onClickListener);
+        bus.setOnClickListener(onClickListener);
 
         setTitlepics(titlepics);
 
@@ -65,10 +80,6 @@ public class Frag_Vehicle extends Fragment{
             titlepics.add(iv);
         }
 
-        buses=new ArrayList<>();    //添加线路列表
-        for (int i=0;i<10;i++){
-            buses.add("bus1"+String.valueOf(i));
-        }
     }
     void setTitlepics(List<ImageView> titlepics) {
         dots.removeAllViews();

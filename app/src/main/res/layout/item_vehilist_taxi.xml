@@ -7,14 +7,14 @@
         android:layout_height="match_parent"
         android:id="@+id/vehi_list_item_icon"
         android:adjustViewBounds="true"
-        android:src="@drawable/vehi_list_item_icon"
+        android:src="@drawable/vehilist_taxi"
         android:layout_marginRight="16dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/vehi_list_item_title"
         android:layout_toRightOf="@id/vehi_list_item_icon"
-        android:text="张家界一日游"
+        android:text="星沙一日游"
         android:textSize="18sp"
         android:textStyle="bold"/>
     <TextView
