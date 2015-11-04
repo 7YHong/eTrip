@@ -3,11 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
+        android:id="@+id/item_rent_category_icon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:src="@drawable/rent_category_phone"/>
+        android:src="@drawable/rent_category_phones"/>
     <TextView
+        android:id="@+id/item_rent_category_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="手机"

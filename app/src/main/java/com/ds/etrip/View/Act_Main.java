@@ -1,26 +1,20 @@
 package com.ds.etrip.View;
 
 import android.os.Bundle;
-
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-
-
 import com.baidu.mapapi.SDKInitializer;
 import com.ds.etrip.Adapter.Main_PagerAdapter;
 import com.ds.etrip.R;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by 7YHong on 2015/10/29.
  */
-public class Act_Main extends AppCompatActivity{
+public class Act_Main extends FragmentActivity{
 
     List<Fragment> fragments;
 
@@ -31,10 +25,6 @@ public class Act_Main extends AppCompatActivity{
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.act_main);
         initFragments();
-
-//        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);//ToolBar
-//        toolbar.setTitle("eTrip");
-//        setSupportActionBar(toolbar);
 
         final ViewPager pager= (ViewPager) findViewById(R.id.viewpager);
         final BottomBar bottomBar= (BottomBar) findViewById(R.id.bottombar);

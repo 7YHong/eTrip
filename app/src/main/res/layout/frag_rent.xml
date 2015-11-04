@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical">
     <LinearLayout
+        android:id="@+id/rent_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8sp"
@@ -25,8 +28,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rent_search"
         android:orientation="horizontal">
         <ListView
             android:layout_width="0dp"
@@ -42,7 +45,15 @@
             android:id="@+id/rent_list_product"
             android:dividerHeight="8dp"
             android:layout_margin="16dp"/>
+
     </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16sp"
+        app:backgroundTint="#ed4e23"
+        android:src="@android:drawable/ic_input_add"/>
 
-
-</LinearLayout>
+</RelativeLayout>

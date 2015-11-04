@@ -7,12 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ds.etrip.Adapter.CommonAdapter;
 import com.ds.etrip.Adapter.Custom_List_Adapter;
+import com.ds.etrip.Model.Rent_Category;
 import com.ds.etrip.R;
+import com.ds.etrip.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +28,8 @@ import java.util.List;
  */
 public class Frag_Rent extends Fragment {
     View v;
-    List<String> categorys,products;
+    List<String> products;
+    List<Rent_Category> categorys;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,9 +37,11 @@ public class Frag_Rent extends Fragment {
         categorys=new ArrayList<>();
         products=new ArrayList<>();
         for (int i=0;i<10;i++){
-            categorys.add("CategoryItem:"+String.valueOf(i));
             products.add("ProductItem:"+String.valueOf(i));
         }
+        categorys.add(new Rent_Category("手机",R.drawable.rent_category_phones));
+        categorys.add(new Rent_Category("服装",R.drawable.rent_category_clothes));
+        categorys.add(new Rent_Category("图书",R.drawable.rent_category_books));
     }
 
     @Override
@@ -44,7 +52,16 @@ public class Frag_Rent extends Fragment {
         category= (ListView) v.findViewById(R.id.rent_list_category);
         product= (ListView) v.findViewById(R.id.rent_list_product);
 
-        ListAdapter categoryAdapter=new Custom_List_Adapter<>(getActivity(),R.layout.item_rent_category,categorys);
+//        ListAdapter categoryAdapter=new Custom_List_Adapter<>(getActivity(),R.layout.item_rent_category,categorys);
+        ListAdapter categoryAdapter=new CommonAdapter<Rent_Category>(getContext(),categorys,R.layout.item_rent_category) {
+            @Override
+            public void convert(ViewHolder viewHolder, Rent_Category item) {
+                TextView tv=viewHolder.getView(R.id.item_rent_category_text);
+                tv.setText(item.getText());
+                ImageView iv=viewHolder.getView(R.id.item_rent_category_icon);
+                iv.setImageResource(item.getDrawableID());
+            }
+        };
         ListAdapter productsAdapter=new Custom_List_Adapter<>(getActivity(),R.layout.item_rent_product,products);
         product.setAdapter(productsAdapter);
         category.setAdapter(categoryAdapter);
