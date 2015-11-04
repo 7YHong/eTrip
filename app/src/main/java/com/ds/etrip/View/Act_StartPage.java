@@ -28,6 +28,7 @@ public class Act_StartPage extends AppCompatActivity{
                     @Override
                     public void run() {
                         startActivity(new Intent(Act_StartPage.this,Act_Main.class));
+//                        startActivity(new Intent(getApplicationContext(), Act_RentDetail.class));
                         finish();
                     }
                 });

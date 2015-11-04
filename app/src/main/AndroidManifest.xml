@@ -22,7 +22,7 @@
         </activity>
 
         <activity
-            android:name=".View.MapActivity"
+            android:name=".View.Bw_mapView"
             android:label="地图"/>
         <activity
             android:name=".View.Act_Main"
@@ -34,8 +34,17 @@
             android:name=".View.Act_VehiDetail"
             android:label="车辆详情"/>
         <activity
-            android:name=".View.BWActivity"
+            android:name=".View.Bw_details"
             android:label="商家信息"/>
+        <activity
+            android:name=".View.Act_Pay"
+            android:label="在线支付"/>
+        <activity
+            android:name=".View.Act_RentDetail"
+            android:label="在线支付"/>
+        <activity
+            android:name=".View.Bw_buynow"
+            android:label="BWbuynow" />
 
         <service
             android:name="com.baidu.location.f"

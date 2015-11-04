@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,28 +9,22 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MapActivity">
-    <!--<android.support.v4.view.ViewPager-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="150dp"-->
-    <!--android:id="@+id/bwxiangqing"-->
-    <!--android:layout_alignParentBottom="true"-->
-    <!-->-->
-
-    <!--</android.support.v4.view.ViewPager>-->
-
     <com.baidu.mapapi.map.MapView
         android:id="@+id/bmapView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:clickable="true" />
+    <android.support.v4.view.ViewPager
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:id="@+id/bwxiangqing"
+    android:layout_alignParentBottom="true"
+    >
+    </android.support.v4.view.ViewPager>
 
 
-    <include
-        layout="@layout/bywayyulan"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        />
 
 
-</LinearLayout>
+
+
+</RelativeLayout>

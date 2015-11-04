@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class VehiList_VP_Adapter extends FragmentPagerAdapter{
     private static final int PAGE_COUNT = 2;
-    private String tabTitles[] = new String[]{"e-Dirt","e-Bus"};
+    private String tabTitles[] = new String[]{"e-Drt","e-Bus"};
     private Context context;
 //    private List<Fragment> fragments;
 

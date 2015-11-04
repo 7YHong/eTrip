@@ -1,12 +1,15 @@
 package com.ds.etrip.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.ds.etrip.Adapter.Custom_List_Adapter;
 import com.ds.etrip.R;
@@ -43,9 +46,20 @@ public class Frag_Rent extends Fragment {
 
         ListAdapter categoryAdapter=new Custom_List_Adapter<>(getActivity(),R.layout.item_rent_category,categorys);
         ListAdapter productsAdapter=new Custom_List_Adapter<>(getActivity(),R.layout.item_rent_product,products);
-
-        category.setAdapter(categoryAdapter);
         product.setAdapter(productsAdapter);
+        category.setAdapter(categoryAdapter);
+        product.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(getActivity(),Act_RentDetail.class));
+            }
+        });
+        category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(),"Category",Toast.LENGTH_LONG).show();
+            }
+        });
 
         return v;
     }

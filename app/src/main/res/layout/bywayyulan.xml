@@ -7,72 +7,78 @@
         android:layout_height="100dp"
         android:background="@color/colorPrimaryDark"
         android:id="@+id/logo"
-        android:padding="10dp">
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@drawable/xiangqing"
-            android:id="@+id/shangjialogo"/>
+        android:padding="0dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_toRightOf="@+id/shangjialogo">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="商家名称"
-                android:textSize="28dp"
-                android:layout_marginLeft="20dp"
-                android:textColor="@android:color/white" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginLeft="20dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="参考价:"
-                    android:textColor="@android:color/white"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/price"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="8888888"
-                    android:textColor="@android:color/white"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="大概位置"
-                android:layout_marginLeft="20dp"
-                android:textSize="10dp"
-                android:textColor="@android:color/white"/>
-        </LinearLayout>
-        <RelativeLayout
-            android:layout_width="75dp"
-            android:layout_height="80dp"
-            android:layout_alignParentRight="true">
-            <Button
-                android:layout_width="75dp"
-                android:layout_height="30dp"
-                android:layout_centerInParent="true"
-                android:background="@drawable/back"
-                android:text="立即详情"
-                android:textColor="@drawable/tab_textcolor"
-                android:id="@+id/xiangqing_btn"
-                android:textSize="12dp"/>
-        </RelativeLayout>
+            android:layout_height="200dp"
+            android:orientation="horizontal" >
 
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:scaleType="fitXY"
+                android:src="@drawable/startpage1" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/bg_Gray" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/detail_show_2" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bg_Gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/detail_show_3" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/bg_Gray" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/detail_show_4" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/logo"
+        android:background="@android:color/white"
         android:padding="10dp">
         <ImageView
             android:layout_width="15dp"
@@ -96,6 +102,18 @@
             android:textSize="20dp"
             android:textColor="@android:color/black"
             />
+
     </LinearLayout>
+        <Button
+            android:layout_width="75dp"
+            android:layout_height="30dp"
+            android:background="@drawable/back"
+            android:layout_marginTop="6dp"
+            android:layout_alignParentRight="true"
+            android:text="立即详情"
+            android:textColor="@drawable/tab_textcolor"
+            android:id="@+id/xiangqing_btn"
+            android:textSize="12dp"/>
+    </RelativeLayout>
 
 </RelativeLayout>

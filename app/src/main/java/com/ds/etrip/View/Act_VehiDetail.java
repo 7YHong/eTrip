@@ -1,7 +1,9 @@
 package com.ds.etrip.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.ds.etrip.R;
 
@@ -13,5 +15,11 @@ public class Act_VehiDetail extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_vehidetail);
+        findViewById(R.id.vehidetail_commit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Act_Pay.class));
+            }
+        });
     }
 }

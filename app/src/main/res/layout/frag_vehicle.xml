@@ -32,7 +32,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
-        android:background="@drawable/vehi_taxi"/>
+        android:background="@drawable/vehi_drt"/>
     <ImageView
         android:id="@+id/vehi_bus"
         android:layout_width="match_parent"

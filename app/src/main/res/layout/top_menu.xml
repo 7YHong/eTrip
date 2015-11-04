@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Tao_F" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="#3A5FCD"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/tv_top_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="搜索你喜欢的商家"
+            android:textColor="@color/black"
+
+            android:background="@drawable/back2"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/iv_refresh"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:text="消息"
+            android:background="@drawable/search_back" />
+    </LinearLayout>
+
+</RelativeLayout>

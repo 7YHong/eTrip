@@ -86,6 +86,7 @@
             android:text="总计$99.9"
             android:textSize="32sp"/>
         <TextView
+            android:id="@+id/vehidetail_commit"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
