@@ -14,7 +14,7 @@
         <activity
             android:name=".View.Act_StartPage"
             android:label="e去"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -23,28 +23,68 @@
 
         <activity
             android:name=".View.Bw_mapView"
-            android:label="地图"/>
+            android:label="地图" />
         <activity
             android:name=".View.Act_Main"
-            android:label="@string/app_name"/>
+            android:label="@string/app_name" />
         <activity
             android:name=".View.Act_VehiList"
-            android:label="车辆列表"/>
+            android:label="车辆列表" />
         <activity
             android:name=".View.Act_VehiDetail"
-            android:label="车辆详情"/>
+            android:label="车辆详情" />
         <activity
             android:name=".View.Bw_details"
-            android:label="商家信息"/>
+            android:label="商家信息" />
         <activity
             android:name=".View.Act_Pay"
-            android:label="在线支付"/>
+            android:label="在线支付" />
         <activity
             android:name=".View.Act_RentDetail"
-            android:label="在线支付"/>
+            android:label="在线支付" />
         <activity
             android:name=".View.Bw_buynow"
             android:label="BWbuynow" />
+        <activity
+            android:name=".View.Act_BywayOrder"
+            android:label="e带">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Act_RentOrder_Rentin"
+            android:label="e借">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Act_RentOrder_Rentout"
+            android:label="e借">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Act_VehiOrder_Bus"
+            android:label="团购巴士">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Act_VehiOrder_Drt"
+            android:label="专车定制">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name="com.baidu.location.f"
